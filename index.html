@@ -215,6 +215,28 @@
       gap: 1rem;
     }
 
+    /* Direct CV button in header */
+    .btn-nav-cv {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 1rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      font-size: 0.83rem;
+      font-weight: 700;
+      color: var(--primary);
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-nav-cv:hover {
+      background: var(--primary-light);
+      border-color: var(--text-subtle);
+      transform: translateY(-1px);
+    }
+
     /* Language Switcher Pill */
     .lang-switcher-btn {
       display: inline-flex;
@@ -336,6 +358,29 @@
       transform: translateY(-2px);
       box-shadow: var(--shadow-md);
     }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.8rem;
+      background: var(--bg-surface);
+      color: var(--text-heading);
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border);
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-secondary:hover {
+      background: var(--primary-light);
+      border-color: var(--text-subtle);
+      color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
 
     /* ─── QUICK METRICS STRIP ──────────────────────────────── */
     .metrics-section {
@@ -517,14 +562,15 @@
     .project-media-container {
       position: relative;
       width: 100%;
-      aspect-ratio: 16/9;
+      flex: 1;
+      min-height: 280px;
       background: #FFFFFF;
       cursor: pointer;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 0.75rem;
+      padding: 1.5rem 1rem;
     }
 
     .project-media-img,
@@ -683,6 +729,43 @@
       color: var(--primary-accent);
       font-weight: 700;
     }
+    /* Project Action Bar (GitHub Repo Link) */
+    .project-action-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-project-github {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1.25rem;
+      background: var(--bg-surface-alt);
+      color: var(--primary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+
+    .btn-project-github svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .btn-project-github:hover {
+      background: var(--primary);
+      color: #FFFFFF;
+      border-color: var(--primary);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-sm);
+    }
+
 
     /* ─── SKILLS & CAPABILITIES ────────────────────────────── */
     .skills-section {
@@ -1033,6 +1116,12 @@
         border-top: 1px solid var(--border) !important;
       }
 
+      .project-media-container {
+        aspect-ratio: 16/9;
+        min-height: auto;
+        padding: 1rem 0.5rem;
+      }
+
       .metrics-grid {
         grid-template-columns: 1fr;
       }
@@ -1085,7 +1174,7 @@
 
       <nav>
         <ul class="nav-links">
-          <li><a href="#projects" data-key="navProjects">Projects &amp; Dashboards</a></li>
+          <li><a href="#projects" data-key="navProjects">Projects</a></li>
           <li><a href="#skills" data-key="navSkills">Skills &amp; Tools</a></li>
           <li><a href="#experience" data-key="navExperience">Experience</a></li>
           <li><a href="#contact" data-key="navContact">Contact</a></li>
@@ -1093,6 +1182,7 @@
       </nav>
 
       <div class="nav-actions">
+
         <!-- Language Switcher Button -->
         <button class="lang-switcher-btn" id="langToggleBtn" onclick="toggleLanguage()" aria-label="Switch Language">
           <span id="langLabel">العربية</span>
@@ -1106,7 +1196,7 @@
   </header>
 
   <!-- ─── HERO SECTION ─────────────────────────────────────────── -->
-  <section class="hero-section">
+  <section class="hero-section" id="top">
     <div class="container hero-content">
       
       <p class="hero-greeting" data-key="heroGreeting">Hello, I'm Arwa Bin Bakr</p>
@@ -1122,7 +1212,12 @@
 
       <div class="hero-actions">
         <a href="#projects" class="btn-primary" data-key="heroBtnProjects">
-          <span>Explore Dashboards</span>
+          <span>Explore Projects</span>
+        </a>
+
+        <!-- Primary CV Button in Hero -->
+        <a href="https://drive.google.com/file/d/1Ytn03HUpZtJuuLZbrz72S9VaHYzftz_R/view?usp=sharing" target="_blank" rel="noopener" class="btn-secondary">
+          <span data-key="heroBtnCV">View Resume (CV)</span>
         </a>
       </div>
 
@@ -1140,7 +1235,7 @@
         </div>
 
         <div class="metric-card">
-          <span class="metric-value">2</span>
+          <span class="metric-value">3</span>
           <span class="metric-label" data-key="metric2">Major Projects</span>
         </div>
 
@@ -1159,7 +1254,7 @@
       
       <div class="section-header">
         <span class="section-badge" data-key="projectsBadge">Featured Analytics Work</span>
-        <h2 class="section-title" data-key="projectsTitle">Interactive BI Dashboards &amp; Case Studies</h2>
+        <h2 class="section-title" data-key="projectsTitle">Interactive BI &amp; AI Solutions</h2>
         <p class="section-desc" data-key="projectsSubtitle">
           Real-world data modeling and visual intelligence solutions designed for executive clarity, deep operational discovery, and actionable business decisions.
         </p>
@@ -1169,6 +1264,7 @@
       <div class="filter-tabs">
         <button class="filter-btn active" onclick="filterProjects('all', this)" data-key="filterAll">All Projects</button>
         <button class="filter-btn" onclick="filterProjects('pbi', this)" data-key="filterPBI">Power BI Dashboards</button>
+        <button class="filter-btn" onclick="filterProjects('ai', this)" data-key="filterAI">AI &amp; Automation</button>
         <button class="filter-btn" onclick="filterProjects('design', this)" data-key="filterDesign">UI/UX &amp; Design</button>
       </div>
 
@@ -1194,6 +1290,14 @@
               <li data-key="qmartH2">Dynamic DAX measures: MoM growth, profit margin %, average basket spend</li>
               <li data-key="qmartH3">Multi-page interactive navigation with localized Arabic typography</li>
             </ul>
+
+            <!-- GitHub Repo Link -->
+            <div class="project-action-bar">
+              <a href="https://github.com/Arwasibb/powerbi-supermarket-retail-analytics" target="_blank" rel="noopener" class="btn-project-github">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span data-key="viewGitHub">View GitHub Repo</span>
+              </a>
+            </div>
           </div>
 
           <div class="project-visual-wrapper">
@@ -1244,6 +1348,14 @@
               <li data-key="saudiH2">Dynamic interactive slicers, cross-filtering, and drill-through details</li>
               <li data-key="saudiH3">Excel ETL data pipeline integration with automated cleaning logic</li>
             </ul>
+
+            <!-- GitHub Repo Link -->
+            <div class="project-action-bar">
+              <a href="https://github.com/Arwasibb/powerbi-retail-sales-analysis" target="_blank" rel="noopener" class="btn-project-github">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span data-key="viewGitHub">View GitHub Repo</span>
+              </a>
+            </div>
           </div>
 
           <div class="project-visual-wrapper">
@@ -1270,12 +1382,63 @@
           </div>
         </article>
 
+        <!-- ─── PROJECT 3: AUTOMATED CONTENT RECYCLING ENGINE (AI & AUTOMATION) ─── -->
+        <article class="project-card" data-category="ai">
+          <div class="project-content-wrapper">
+            <div class="project-header-row">
+              <span class="project-tag">Python · FastAPI · OpenAI · FFmpeg</span>
+              <span class="project-num">03</span>
+            </div>
+
+            <h3 class="project-title" data-key="creTitle">Content Recycling Engine (AI Automation)</h3>
+
+            <p class="project-description" data-key="creDesc">
+              A production-ready full-stack AI pipeline built with Python and FastAPI to automatically ingest long-form articles, audio, and video content, transcoding them into bite-sized social media assets. Features asynchronous task execution, web scraping, FFmpeg automated audio-visual splicing, and OpenAI API integrations for contextual summarization and transcription.
+            </p>
+
+            <ul class="project-highlights">
+              <li data-key="creH1">Asynchronous REST API architecture engineered with Python &amp; FastAPI</li>
+              <li data-key="creH2">Automated multimedia extraction and audio transcription pipeline via FFmpeg &amp; OpenAI</li>
+              <li data-key="creH3">Applied modern 'vibe coding' and rapid prototyping methodologies for high engineering throughput</li>
+            </ul>
+
+            <!-- GitHub Repo Link -->
+            <div class="project-action-bar">
+              <a href="https://github.com/Arwasibb/content_recycling_engine" target="_blank" rel="noopener" class="btn-project-github">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span data-key="viewGitHub">View GitHub Repo</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-visual-wrapper">
+            <div class="project-media-container" id="p5-container" onclick="openProjectLightbox('p5')">
+              <img id="p5-img" class="project-media-img" src="assets/content_engine_architecture.svg" alt="Content Recycling Engine Pipeline Architecture" loading="lazy"/>
+              <div class="project-media-overlay">
+                <span class="overlay-expand-btn">
+                  <span data-key="expandView">Expand Full View</span>
+                </span>
+              </div>
+            </div>
+            <!-- Multi-view tabs: 1. Architecture Diagram (First) -> 2. Web App UI (Second) -->
+            <div class="project-views-bar">
+              <button class="view-tab-btn active" onclick="switchProjectView('p5', 'assets/content_engine_architecture.svg', 'Content Recycling Engine: Pipeline Architecture', this, 'image')">
+                <span data-key="creTab1">Pipeline Architecture</span>
+              </button>
+              <button class="view-tab-btn" onclick="switchProjectView('p5', 'assets/content_engine_ui.png', 'Content Recycling Engine: Website UI', this, 'image')">
+                <span data-key="creTabUI">Website UI</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+
         <!-- ─── PROJECT 3: HOTELS & RESORTS EVALUATION ─── -->
         <article class="project-card" data-category="pbi">
           <div class="project-content-wrapper">
             <div class="project-header-row">
               <span class="project-tag">Power BI · Hospitality KPIs · Inspection Analytics</span>
-              <span class="project-num">03</span>
+              <span class="project-num">04</span>
             </div>
 
             <h3 class="project-title" data-key="hotelTitle">Hotels &amp; Resorts Inspection &amp; Compliance Evaluation</h3>
@@ -1318,7 +1481,7 @@
           <div class="project-content-wrapper">
             <div class="project-header-row">
               <span class="project-tag">Figma · UI/UX · Executive Information Architecture</span>
-              <span class="project-num">04</span>
+              <span class="project-num">05</span>
             </div>
 
             <h3 class="project-title" data-key="figmaTitle">Executive Service Follow-up Indicators &amp; BI Design System</h3>
@@ -1514,9 +1677,9 @@
         
         <div>
           <span class="section-badge" data-key="contactBadge">Let's Connect</span>
-          <h2 class="contact-left-title" data-key="contactTitle">Ready to Build Data Solutions Together?</h2>
+          <h2 class="contact-left-title" data-key="contactTitle">Ready to Build Data &amp; AI Solutions Together?</h2>
           <p class="contact-left-desc" data-key="contactDesc">
-            Whether you are looking for a Data Analyst or need an executive Power BI dashboard, I'd love to connect.
+            Whether you are looking for a Data Analyst, need an executive Power BI dashboard, or want to build AI-powered automation pipelines, I'd love to connect.
           </p>
 
           <div class="contact-direct-links">
@@ -1579,7 +1742,7 @@
       en: {
         name: "Arwa Bin Bakr",
         roleTag: "Data Analyst & AI",
-        navProjects: "Projects & Dashboards",
+        navProjects: "Projects",
         navSkills: "Skills & Tools",
         navExperience: "Experience",
         navContact: "Contact",
@@ -1587,17 +1750,28 @@
         heroGreeting: "Hello, I'm Arwa Bin Bakr",
         heroTitle: "Transforming Complex Data into <br/><span class='highlight'>Visual, Actionable Intelligence</span>",
         heroSubtitle: "Computer Science graduate with First Class Honours from Princess Nourah Bint Abdulrahman University. Specialized in architecting end-to-end Power BI dashboards, advanced Star Schema data modeling, DAX analytics, and AI-assisted data workflows.",
-        heroBtnProjects: "Explore Dashboards",
+        heroBtnProjects: "Explore Projects",
         metric1: "Months Work Experience",
         metric2: "Major Projects",
         metric3: "Data Models Built",
         projectsBadge: "Featured Analytics Work",
-        projectsTitle: "Interactive BI Dashboards & Case Studies",
-        projectsSubtitle: "Real-world data modeling and visual intelligence solutions designed for executive clarity, deep operational discovery, and actionable business decisions.",
+        projectsTitle: "Interactive BI & AI Solutions",
+        projectsSubtitle: "End-to-end data modeling, visual intelligence, and AI-driven automation pipelines engineered for operational impact and strategic decision-making.",
         filterAll: "All Projects",
         filterPBI: "Power BI Dashboards",
         filterDesign: "UI/UX & Design",
         expandView: "Expand Full View",
+        navCV: "CV / Resume",
+        heroBtnCV: "View Resume (CV)",
+        filterAI: "AI & Automation",
+        viewGitHub: "View GitHub Repo",
+        creTitle: "Content Recycling Engine (AI Automation)",
+        creDesc: "A production-ready full-stack AI pipeline built with Python and FastAPI to automatically ingest long-form articles, audio, and video content, transcoding them into bite-sized social media assets. Features asynchronous task execution, web scraping, FFmpeg automated audio-visual splicing, and OpenAI API integrations for contextual summarization and transcription.",
+        creH1: "Asynchronous REST API architecture engineered with Python & FastAPI",
+        creH2: "Automated multimedia extraction and audio transcription pipeline via FFmpeg & OpenAI",
+        creH3: "Applied modern 'vibe coding' and rapid prototyping methodologies for high engineering throughput",
+        creTabUI: "Website UI",
+        creTab1: "Pipeline Architecture",
         
         // Supermarket Retail Project
         qmartTitle: "Supermarket Retail Analytics",
@@ -1680,8 +1854,8 @@
         
         // Contact
         contactBadge: "Let's Connect",
-        contactTitle: "Ready to Build Data Solutions Together?",
-        contactDesc: "Whether you are looking for a Data Analyst or need an executive Power BI dashboard, I'd love to connect.",
+        contactTitle: "Ready to Build Data & AI Solutions Together?",
+        contactDesc: "Whether you are looking for a Data Analyst, need an executive Power BI dashboard, or want to build AI-powered automation pipelines, I'd love to connect.",
         emailLabel: "Email Address",
         phoneLabel: "Phone & WhatsApp",
         contactLocation: "Makkah, Saudi Arabia"
@@ -1690,7 +1864,7 @@
       ar: {
         name: "اروى بن بكر",
         roleTag: "تحليل البيانات والذكاء الاصطناعي",
-        navProjects: "المشاريع ولوحات البيانات",
+        navProjects: "المشاريع",
         navSkills: "المهارات والأدوات",
         navExperience: "الخبرات والتعليم",
         navContact: "تواصل معي",
@@ -1698,17 +1872,28 @@
         heroGreeting: "أهلاً، أنا اروى بن بكر",
         heroTitle: "تحويل البيانات المعقدة إلى <br/><span class='highlight'>رؤى بصرية وقرارات استراتيجية</span>",
         heroSubtitle: "خريجة علوم حاسب بمرتبة الشرف الأولى من جامعة الأميرة نورة بنت عبدالرحمن. متخصصة في بناء لوحات البيانات التفاعلية (Power BI)، نمذجة البيانات المتقدمة (Star Schema & DAX)، وتطوير مسارات تحليل البيانات المؤتمتة باستخدام الذكاء الاصطناعي.",
-        heroBtnProjects: "استعراض لوحات البيانات",
+        heroBtnProjects: "استعراض المشاريع",
         metric1: "أشهر خبرة عملية",
         metric2: "مشاريع رئيسية متكاملة",
         metric3: "نماذج بيانات مبنية",
         projectsBadge: "أبرز الأعمال التحليلية",
-        projectsTitle: "لوحات بيانات تفاعلية ودراسات عملية",
-        projectsSubtitle: "حلول متقدمة لنمذجة البيانات وذكاء الأعمال مصممة لتوفير وضوح تنفيذي واستكشاف تشغيلي عميق يدعم اتخاذ القرار.",
+        projectsTitle: "مشاريع البيانات وحلول الذكاء الاصطناعي",
+        projectsSubtitle: "حلول متقدمة لنمذجة البيانات، ذكاء الأعمال، وأنظمة الأتمتة بالذكاء الاصطناعي مصممة لتوفير وضوح تنفيذي ودعم اتخاذ القرار.",
         filterAll: "جميع المشاريع",
         filterPBI: "لوحات Power BI",
         filterDesign: "تصاميم الواجهات (UI/UX)",
         expandView: "تكبير العرض بالكامل",
+        navCV: "السيرة الذاتية (CV)",
+        heroBtnCV: "استعراض السيرة الذاتية",
+        filterAI: "الذكاء الاصطناعي والأتمتة",
+        viewGitHub: "مستودع GitHub",
+        creTitle: "محرك تدوير المحتوى وأتمتته بالذكاء الاصطناعي",
+        creDesc: "مسار برمجي متكامل ومؤتمت (Full-stack AI Pipeline) مبني باستخدام Python و FastAPI لتحويل المقالات والفيديوهات الطويلة إلى محتوى مخصص لمنصات التواصل. يدمج بين سحب البيانات، ومعالجة الوسائط عبر FFmpeg، وتوظيف واجهات OpenAI للتلخيص واستخراج النصوص وتوليد الأصول.",
+        creH1: "بنية تحتية برمجية غير متزامنة (Asynchronous API) مبنية بـ FastAPI وبايثون",
+        creH2: "معالجة وسائط الفيديو والصوت المتقدمة وتطويعها آلياً باستخدام مكتبة FFmpeg و OpenAI",
+        creH3: "تطبيق أسلوب 'Vibe Coding' والسرعة الفائقة في تحويل الأفكار إلى منتجات برمجية حقيقية",
+        creTabUI: "واجهة الموقع",
+        creTab1: "بنية مسار العمل (Architecture)",
         
         // Supermarket Retail Project
         qmartTitle: "لوحة تحليلات مبيعات السوبرماركت والتجزئة",
@@ -1791,8 +1976,8 @@
         
         // Contact (Updated directly to user's exact phrasing)
         contactBadge: "تواصل معي",
-        contactTitle: "هل ترغب في بناء حلول بيانات معاً؟",
-        contactDesc: "سواء كنت تبحث عن أخصائية تحليل بيانات، أو تحتاج إلى تصميم لوحة قيادة تنفيذية في Power BI، يسعدني جداً تواصلك معي.",
+        contactTitle: "هل ترغب في بناء حلول بيانات وذكاء اصطناعي معاً؟",
+        contactDesc: "سواء كنت تبحث عن أخصائية تحليل بيانات، أو تحتاج إلى تصميم لوحة قيادة تنفيذية في Power BI أو بناء حلول مؤتمتة بالذكاء الاصطناعي، يسعدني جداً تواصلك معي.",
         emailLabel: "البريد الإلكتروني",
         phoneLabel: "الهاتف والواتساب",
         contactLocation: "مكة المكرمة، المملكة العربية السعودية"
@@ -1836,7 +2021,8 @@
       p1: { src: 'assets/supermarket_sales_overview_data.png', caption: 'Supermarket Retail: Sales Overview (نظرة عامة على المبيعات)', type: 'image' },
       p2: { src: 'assets/saudi_retail_overview_data.png', caption: 'Saudi Retail Sales: Executive Overview', type: 'image' },
       p3: { src: 'assets/hotels_resorts_eval.png', caption: 'Hotels & Resorts: Evaluation Dashboard', type: 'image' },
-      p4: { src: 'assets/general_indicators_figma.svg', caption: 'Executive Indicators: Service Follow-up Overview 01', type: 'image' }
+      p4: { src: 'assets/general_indicators_figma.svg', caption: 'Executive Indicators: Service Follow-up Overview 01', type: 'image' },
+      p5: { src: 'assets/content_engine_architecture.svg', caption: 'Content Recycling Engine: Pipeline Architecture', type: 'image' }
     };
 
     function switchProjectView(projectId, mediaSrc, caption, btnEl, type) {
@@ -1880,6 +2066,7 @@
     function openProjectLightbox(projectId) {
       const view = projectCurrentViews[projectId];
       if (view) {
+        if (view.type === 'svg') return;
         openLightbox(view.src, view.caption, view.type);
       }
     }
@@ -1962,6 +2149,11 @@
       }, 2500);
     }
 
+    // ─── ENSURE PAGE STARTS AT TOP (HERO) ───────────────────
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
     // ─── INITIALIZE SAVED PREFERENCE ────────────────────────
     window.addEventListener('DOMContentLoaded', () => {
       let savedLang = 'en';
@@ -1969,6 +2161,15 @@
         savedLang = localStorage.getItem('arwa_portfolio_lang') || 'en';
       } catch (e) {}
       applyLanguage(savedLang);
+
+      // Always start from the top hero section
+      window.scrollTo(0, 0);
+    });
+
+    window.addEventListener('load', () => {
+      if (!window.location.hash || window.location.hash === '#' || window.location.hash === '#top') {
+        window.scrollTo(0, 0);
+      }
     });
   </script>
 </body>
